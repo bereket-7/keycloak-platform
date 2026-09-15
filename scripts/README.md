@@ -8,6 +8,8 @@ Operational helper scripts for the Keycloak platform.
 |--------|---------|
 | `validate-foundation.sh` | Phase 00 acceptance checks (structure, rules, secrets hygiene) |
 | `validate-infrastructure.sh` | Phase 01 runtime checks (requires `make up`) |
+| `validate-keycloak.sh` | Phase 02 realm/client/role/group checks |
+| `import-realm.sh` | Create or update `platform` realm from Git import JSON |
 
 Additional scripts for backup, restore, health checks, and client
 registration will be added in later phases as needed.
