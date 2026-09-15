@@ -1,4 +1,5 @@
 .PHONY: help validate-foundation validate-infrastructure validate-keycloak \
+	validate-authentication validate-authorization apply-auth apply-authorization \
 	config up down reset logs ps health import-realm
 
 COMPOSE := docker compose
@@ -10,6 +11,10 @@ help:
 	@echo "  validate-foundation       Run Phase 00 acceptance checks"
 	@echo "  validate-infrastructure   Run Phase 01 runtime checks (stack must be up)"
 	@echo "  validate-keycloak         Run Phase 02 realm/client checks (stack must be up)"
+	@echo "  apply-auth                Apply Phase 03 auth policies and demo users"
+	@echo "  validate-authentication   Run Phase 03 OIDC lifecycle checks"
+	@echo "  apply-authorization       Apply Phase 04 groups claim mapper"
+	@echo "  validate-authorization    Run Phase 04 authorization contract checks"
 	@echo "  import-realm              Create/update platform realm from Git import"
 	@echo "  config                    Validate docker compose configuration"
 	@echo "  up                        Start local infrastructure"
@@ -20,7 +25,7 @@ help:
 	@echo "  health                    Check service health"
 	@echo ""
 	@echo "Documentation: docs/README.md"
-	@echo "Current phase:  docs/phases/02-keycloak.md"
+	@echo "Current phase:  docs/phases/04-authorization.md"
 
 validate-foundation:
 	@./scripts/validate-foundation.sh
@@ -30,6 +35,18 @@ validate-infrastructure:
 
 validate-keycloak:
 	@./scripts/validate-keycloak.sh
+
+apply-auth:
+	@./scripts/apply-authentication-policies.sh
+
+validate-authentication:
+	@./scripts/validate-authentication.sh
+
+apply-authorization:
+	@./scripts/apply-authorization-config.sh
+
+validate-authorization:
+	@./scripts/validate-authorization.sh
 
 import-realm:
 	@./scripts/import-realm.sh
