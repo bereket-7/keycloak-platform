@@ -60,7 +60,11 @@ make ps                      # Check service status
 make health                  # Verify both services are healthy
 make validate-infrastructure # Full Phase 01 checks (stack must be up)
 make import-realm            # Ensure platform realm from Git (Phase 02)
+make apply-auth              # Apply Phase 03 auth policies + demo users
 make validate-keycloak       # Full Phase 02 realm/client checks
+make validate-authentication # Full Phase 03 OIDC lifecycle checks
+make apply-authorization     # Groups claim mapper for authZ signals (Phase 04)
+make validate-authorization  # Phase 04 authorization contract checks
 make logs                    # Follow logs
 make down                    # Stop services (data retained)
 make reset                   # Stop and wipe database volume (destructive)
@@ -70,7 +74,11 @@ Keycloak admin console: `http://localhost:8080/` (or `KEYCLOAK_HTTP_PORT` from `
 
 **Platform realm:** `http://localhost:8080/realms/platform`  
 **OIDC discovery:** `http://localhost:8080/realms/platform/.well-known/openid-configuration`  
-**Demo user (local only):** `demo` / `changeme`
+**Demo user (local only):** `demo@example.com` / `changeme-demo-12` (or `demo` on fresh import)  
+**Admin MFA baseline:** `admin-demo@example.com` / `changeme-admin-12` (configure TOTP on login)
+
+Authentication policies: [docs/security/authentication-policies.md](docs/security/authentication-policies.md)  
+Authorization model: [docs/security/authorization-model.md](docs/security/authorization-model.md)
 
 **Warning:** `make reset` runs `docker compose down -v` and destroys all
 Keycloak data in the local PostgreSQL volume.
