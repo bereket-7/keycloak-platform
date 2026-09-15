@@ -224,18 +224,18 @@ Rules:
 
 ## Tasks
 
-- [ ] Create realm `platform` (UI or import)
-- [ ] Define baseline realm roles (`user`, `admin`, `super-admin` or documented equivalents)
-- [ ] Define group naming convention (org/team/project)
-- [ ] Register sample clients for at least one fictional or real app pair (`*-web`, `*-api`)
-- [ ] Configure public frontend client with PKCE and explicit redirect URIs
-- [ ] Configure backend/resource-server client settings appropriately
-- [ ] Set web origins explicitly
-- [ ] Configure default scopes
-- [ ] Export realm baseline to version control (secrets scrubbed)
-- [ ] Document environment-specific overlays for redirect URIs
-- [ ] Document optional IdP enablement procedure (without making IdPs mandatory)
-- [ ] Restrict who can change production realm settings (process note)
+- [x] Create realm `platform` (UI or import)
+- [x] Define baseline realm roles (`user`, `admin`, `super-admin` or documented equivalents)
+- [x] Define group naming convention (org/team/project)
+- [x] Register sample clients for at least one fictional or real app pair (`*-web`, `*-api`)
+- [x] Configure public frontend client with PKCE and explicit redirect URIs
+- [x] Configure backend/resource-server client settings appropriately
+- [x] Set web origins explicitly
+- [x] Configure default scopes
+- [x] Export realm baseline to version control (secrets scrubbed)
+- [x] Document environment-specific overlays for redirect URIs
+- [x] Document optional IdP enablement procedure (without making IdPs mandatory)
+- [x] Restrict who can change production realm settings (process note)
 
 ---
 
