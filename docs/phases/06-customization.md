@@ -111,16 +111,16 @@ Themes change presentation, not protocol guarantees.
 
 ## Tasks
 
-- [ ] Create base Keycloak theme structure
-- [ ] Brand login (and registration if enabled)
-- [ ] Align account UI branding where in scope
-- [ ] Add logo, color, and typography tokens/files
-- [ ] Review accessibility (contrast, labels, keyboard)
-- [ ] Configure SMTP for non-local environments (and local mail trap if used)
-- [ ] Customize verification and reset email templates
-- [ ] Document optional IdP enablement + branding buttons
-- [ ] Mark non-production environments visually when appropriate
-- [ ] Security-review theme for script injection / external dependencies
+- [x] Create base Keycloak theme structure
+- [x] Brand login (and registration if enabled)
+- [x] Align account UI branding where in scope
+- [x] Add logo, color, and typography tokens/files
+- [x] Review accessibility (contrast, labels, keyboard)
+- [x] Configure SMTP for non-local environments (and local mail trap if used)
+- [x] Customize verification and reset email templates
+- [x] Document optional IdP enablement + branding buttons
+- [x] Mark non-production environments visually when appropriate
+- [x] Security-review theme for script injection / external dependencies
 
 ---
 
