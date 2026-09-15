@@ -29,6 +29,18 @@ Contains the implementation plan and progress for each development phase.
 - [07-production.md](phases/07-production.md)
 - [08-reusability.md](phases/08-reusability.md)
 
+### Integration
+
+- [application-integration.md](integration/application-integration.md)
+
+### Customization
+
+- [customization-guide.md](customization/customization-guide.md)
+
+### Reusability
+
+- [onboarding.md](reusability/onboarding.md)
+
 ### Security
 
 Contains authentication, authorization, token, and threat-model documentation.
@@ -41,11 +53,12 @@ Contains authentication, authorization, token, and threat-model documentation.
 
 ### Operations
 
-Contains backup, restore, upgrade, and troubleshooting procedures.
+Contains backup, restore, upgrade, production, and troubleshooting procedures.
 
 - [backup.md](operations/backup.md)
 - [restore.md](operations/restore.md)
 - [upgrades.md](operations/upgrades.md)
+- [production-deployment.md](operations/production-deployment.md)
 - [troubleshooting.md](operations/troubleshooting.md)
 
 ## Development Principle
