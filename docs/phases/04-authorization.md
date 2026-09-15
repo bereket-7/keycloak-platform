@@ -190,28 +190,40 @@ need to authenticate.
 
 ## Tasks
 
-- [ ] Document identity vs authorization boundary for the platform
-- [ ] Finalize coarse role vocabulary (`user`, `admin`, `super-admin`)
-- [ ] Document group conventions for org/team/project
-- [ ] Specify which claims apps may consume from tokens
-- [ ] Define backend validation checklist (signature, iss, aud, exp, roles, resource)
-- [ ] Define 401 vs 403 API contract for integrating teams
-- [ ] Publish “common mistakes” guidance to application developers
-- [ ] Add authorization examples to application integration docs (Phase 05 cross-link)
+- [x] Document identity vs authorization boundary for the platform
+- [x] Finalize coarse role vocabulary (`user`, `admin`, `super-admin`)
+- [x] Document group conventions for org/team/project
+- [x] Specify which claims apps may consume from tokens
+- [x] Define backend validation checklist (signature, iss, aud, exp, roles, resource)
+- [x] Define 401 vs 403 API contract for integrating teams
+- [x] Publish “common mistakes” guidance to application developers
+- [x] Add authorization examples to application integration docs (Phase 05 cross-link)
 
 ---
 
 ## Testing
 
-| Case | Expected |
-|------|----------|
-| Valid token, permitted resource | **200** (or success) |
-| Missing token | **401** |
-| Invalid/expired token | **401** |
-| Valid token, wrong role for admin route | **403** |
-| Valid token, wrong resource ownership | **403** |
-| Client sends forged `X-Role: admin` header | Ignored; decision from token + server policy |
-| Frontend-only hide of admin button | API still rejects unauthorized caller |
+| Case | Expected | Where verified |
+|------|----------|----------------|
+| Valid token, permitted resource | **200** (or success) | Application test catalog |
+| Missing token | **401** | Application test catalog |
+| Invalid/expired token | **401** | Application test catalog |
+| Valid token, wrong role for admin route | **403** | Application test catalog |
+| Valid token, wrong resource ownership | **403** | Application test catalog |
+| Client sends forged `X-Role: admin` header | Ignored | Documented contract |
+| Frontend-only hide of admin button | API still rejects | Documented contract |
+| Access token contains `user` role | Present | `make validate-authorization` |
+| Access token contains group paths | `/orgs/...` etc. | `make validate-authorization` |
+| Coarse role vocabulary exists | `user`/`admin`/`super-admin` | `make validate-authorization` |
+
+Platform checks:
+
+```bash
+make apply-authorization
+make validate-authorization
+```
+
+Contract: [authorization-model.md](../security/authorization-model.md).
 
 ---
 
