@@ -182,18 +182,27 @@ reuse. MFA significantly raises attacker cost for account takeover.
 
 ### Authentication test matrix
 
-| Case | Steps | Expected |
-|------|-------|----------|
-| Successful login | Valid user completes OIDC code flow | Tokens issued; app authenticated |
-| Failed login | Wrong password | Login denied; no tokens |
-| Registration | If enabled, new user registers | User created per policy; verification gates applied |
-| Email verification | User verifies email | Account state updates; access policy honored |
-| Password reset | Request reset; set new password | Can log in with new password; old rejected |
-| Logout | App + IdP logout | Session ended; protected routes require login |
-| Expired access token | Call API with expired Bearer token | **401** |
-| Refresh | Valid refresh token | New access token; API succeeds |
-| MFA | User with MFA required | Login blocked until MFA succeeds |
-| Invalid session | Tampered/missing cookies or tokens | Re-auth required |
+| Case | Steps | Expected | Automated |
+|------|-------|----------|-----------|
+| Successful login | Valid user completes OIDC code + PKCE | Tokens issued | `make validate-authentication` |
+| Failed login | Wrong password | Login denied; no code | yes |
+| Registration | Self-registration | Disabled by policy | policy check |
+| Email verification | User verifies email | Deferred until SMTP (Phase 06) | documented |
+| Password reset | Request reset | Allowed; email needs SMTP | policy check |
+| Logout | RP-initiated logout | Refresh rejected after | yes |
+| Expired access token | Call userinfo without/invalid token | **401** | yes (invalid/missing) |
+| Refresh | Valid refresh token | New access token; reuse rejected | yes |
+| MFA | Privileged user | `CONFIGURE_TOTP` on `admin-demo` | yes |
+| Invalid session | Tampered/missing tokens | Re-auth / 401 | yes |
+
+Run:
+
+```bash
+make apply-auth
+make validate-authentication
+```
+
+Policy reference: [authentication-policies.md](../security/authentication-policies.md).
 
 Automate where practical; manually verify browser redirects and cookie flags in local HTTPS-less setups carefully.
 
@@ -214,16 +223,16 @@ Automate where practical; manually verify browser redirects and cookie flags in 
 
 ## Tasks
 
-- [ ] Confirm OIDC discovery for `platform` realm
-- [ ] Validate authorization code + PKCE for public clients
-- [ ] Validate token endpoint code exchange
-- [ ] Document issuer, JWKS, and token validation rules for apps
-- [ ] Configure session and token lifetimes deliberately
-- [ ] Enable and test logout (app + Keycloak)
-- [ ] Configure registration/verification/reset policies as required
-- [ ] Configure MFA baseline for privileged users (minimum)
-- [ ] Ensure apps never store passwords
-- [ ] Execute authentication test matrix and record results
+- [x] Confirm OIDC discovery for `platform` realm
+- [x] Validate authorization code + PKCE for public clients
+- [x] Validate token endpoint code exchange
+- [x] Document issuer, JWKS, and token validation rules for apps
+- [x] Configure session and token lifetimes deliberately
+- [x] Enable and test logout (app + Keycloak)
+- [x] Configure registration/verification/reset policies as required
+- [x] Configure MFA baseline for privileged users (minimum)
+- [x] Ensure apps never store passwords
+- [x] Execute authentication test matrix and record results
 
 ---
 
