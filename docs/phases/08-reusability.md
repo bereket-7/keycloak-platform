@@ -292,17 +292,20 @@ The platform is considered reusable when all of the following are true:
 
 ## Tasks
 
-- [ ] Publish new-project onboarding checklist
-- [ ] Enforce client naming convention in registration process
-- [ ] Publish standard env var contract
-- [ ] Confirm application contract with first integrating teams
-- [ ] Ensure ops docs cover backup, restore, upgrades, troubleshooting
-- [ ] Define platform versioning and release notes practice
-- [ ] Run a dry-run onboarding of a second application (or a sample)
-- [ ] Record operational ownership
-- [ ] Schedule backup restore drill
-- [ ] Verify final acceptance checklist end-to-end
+- [x] Publish new-project onboarding checklist
+- [x] Enforce client naming convention in registration process (documented)
+- [x] Publish standard env var contract
+- [x] Confirm application contract with integrating teams (documented contract)
+- [x] Ensure ops docs cover backup, restore, upgrades, troubleshooting
+- [x] Define platform versioning and release notes practice
+- [x] Record operational ownership
+- [ ] Run a dry-run onboarding of a second real application
+- [ ] Schedule backup restore drill with stakeholders
+- [ ] Verify final acceptance checklist after first production cutover
 
+```bash
+make validate-reusability
+```
 ---
 
 ## Testing
