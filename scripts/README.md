@@ -6,17 +6,23 @@ Operational helper scripts for the Keycloak platform.
 
 | Script | Purpose |
 |--------|---------|
-| `validate-foundation.sh` | Phase 00 acceptance checks (structure, rules, secrets hygiene) |
-| `validate-infrastructure.sh` | Phase 01 runtime checks (requires `make up`) |
-| `validate-keycloak.sh` | Phase 02 realm/client/role/group checks |
-| `import-realm.sh` | Create or update `platform` realm from Git import JSON |
-| `apply-authentication-policies.sh` | Apply Phase 03 password/MFA/session policies and demo users |
-| `validate-authentication.sh` | Phase 03 OIDC lifecycle (PKCE login, refresh, logout) |
-| `apply-authorization-config.sh` | Phase 04 groups claim mapper on sample clients |
-| `validate-authorization.sh` | Phase 04 authorization contract and token signals |
+| `validate-foundation.sh` | Phase 00 |
+| `validate-infrastructure.sh` | Phase 01 |
+| `validate-keycloak.sh` | Phase 02 |
+| `import-realm.sh` | Create/update realm from Git |
+| `apply-authentication-policies.sh` | Phase 03 policies/users |
+| `validate-authentication.sh` | Phase 03 OIDC lifecycle |
+| `apply-authorization-config.sh` | Phase 04 groups mapper |
+| `validate-authorization.sh` | Phase 04 authZ contract |
+| `validate-integration.sh` | Phase 05 integration contract |
+| `apply-customization.sh` | Phase 06 theme on realm |
+| `validate-customization.sh` | Phase 06 theme/docs |
+| `validate-production-docs.sh` | Phase 07 production docs |
+| `validate-reusability.sh` | Phase 08 onboarding completeness |
 
-Additional scripts for backup, restore, health checks, and client
-registration will be added in later phases as needed.
+```bash
+make validate-all
+```
 
 ## Rules
 
