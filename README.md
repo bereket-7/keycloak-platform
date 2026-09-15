@@ -59,12 +59,18 @@ make up                      # Start Keycloak and PostgreSQL
 make ps                      # Check service status
 make health                  # Verify both services are healthy
 make validate-infrastructure # Full Phase 01 checks (stack must be up)
+make import-realm            # Ensure platform realm from Git (Phase 02)
+make validate-keycloak       # Full Phase 02 realm/client checks
 make logs                    # Follow logs
 make down                    # Stop services (data retained)
 make reset                   # Stop and wipe database volume (destructive)
 ```
 
 Keycloak admin console: `http://localhost:8080/` (or `KEYCLOAK_HTTP_PORT` from `.env`).
+
+**Platform realm:** `http://localhost:8080/realms/platform`  
+**OIDC discovery:** `http://localhost:8080/realms/platform/.well-known/openid-configuration`  
+**Demo user (local only):** `demo` / `changeme`
 
 **Warning:** `make reset` runs `docker compose down -v` and destroys all
 Keycloak data in the local PostgreSQL volume.
