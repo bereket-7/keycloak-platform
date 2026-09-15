@@ -2,25 +2,17 @@
 
 Declarative, non-secret configuration for the Keycloak platform.
 
-## Purpose
-
-This directory holds environment-aware configuration that can be safely
-committed to Git. Secrets never belong here — use `.env` (local) or a
-secret manager (staging/production).
-
 ## Layout
 
 ```text
 config/
-└── realm/          Realm import artifacts and overlays (Phase 02+)
+├── realm/                 Realm overlay notes (Phase 02+)
+└── apps/
+    └── env.application.example   Standard app env contract (Phase 05+)
 ```
 
 ## Rules
 
 - No passwords, client secrets, or API keys in committed files.
-- Environment-specific values (redirect URIs, hostnames) may use separate
-  overlay files documented in phase docs.
-- Prefer version-controlled exports over snowflake Admin Console changes.
-
-See [docs/phases/02-keycloak.md](../docs/phases/02-keycloak.md) for realm
-configuration management.
+- Application teams copy `env.application.example` into their own repos.
+- Prefer version-controlled realm exports under `keycloak/import/`.
