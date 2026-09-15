@@ -50,17 +50,24 @@ objectives, tasks, and acceptance criteria before the next begins.
 documentation. **Phase 01** adds Docker Compose for Keycloak and
 PostgreSQL.
 
-When Phase 01 is complete:
-
 ```bash
 cp .env.example .env
 # Edit .env — replace changeme placeholders with strong local passwords
 
-make up          # Start Keycloak and PostgreSQL
-make ps          # Check service status
-make logs        # Follow logs
-make down        # Stop services
+make config                  # Validate Compose configuration
+make up                      # Start Keycloak and PostgreSQL
+make ps                      # Check service status
+make health                  # Verify both services are healthy
+make validate-infrastructure # Full Phase 01 checks (stack must be up)
+make logs                    # Follow logs
+make down                    # Stop services (data retained)
+make reset                   # Stop and wipe database volume (destructive)
 ```
+
+Keycloak admin console: `http://localhost:8080/` (or `KEYCLOAK_HTTP_PORT` from `.env`).
+
+**Warning:** `make reset` runs `docker compose down -v` and destroys all
+Keycloak data in the local PostgreSQL volume.
 
 Validate the foundation at any time:
 

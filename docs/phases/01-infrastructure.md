@@ -221,20 +221,20 @@ Failure at any step should be visible via `docker compose ps` and service logs.
 
 ## Tasks
 
-- [ ] Create `docker-compose.yml` with `postgres` and `keycloak` services
-- [ ] Pin image versions (no `latest`)
-- [ ] Configure shared Docker network
-- [ ] Configure PostgreSQL named volume
-- [ ] Wire environment variables from `.env` / `.env.example`
-- [ ] Configure Keycloak DB connection to PostgreSQL over the Docker network
-- [ ] Add PostgreSQL health check
-- [ ] Add Keycloak health check
-- [ ] Set `depends_on` with healthy condition for Keycloak → PostgreSQL
-- [ ] Publish Keycloak port to host; keep PostgreSQL unpublished unless there is a documented local debugging need
-- [ ] Set restart policies
-- [ ] Add Makefile targets: `up`, `down`, `logs`, `ps` (optional but recommended)
-- [ ] Document how to start, stop, and reset (including volume destroy warning)
-- [ ] Verify `.gitignore` excludes `.env` and does not track volume data
+- [x] Create `docker-compose.yml` with `postgres` and `keycloak` services
+- [x] Pin image versions (no `latest`)
+- [x] Configure shared Docker network
+- [x] Configure PostgreSQL named volume
+- [x] Wire environment variables from `.env` / `.env.example`
+- [x] Configure Keycloak DB connection to PostgreSQL over the Docker network
+- [x] Add PostgreSQL health check
+- [x] Add Keycloak health check
+- [x] Set `depends_on` with healthy condition for Keycloak → PostgreSQL
+- [x] Publish Keycloak port to host; keep PostgreSQL unpublished unless there is a documented local debugging need
+- [x] Set restart policies
+- [x] Add Makefile targets: `up`, `down`, `logs`, `ps` (optional but recommended)
+- [x] Document how to start, stop, and reset (including volume destroy warning)
+- [x] Verify `.gitignore` excludes `.env` and does not track volume data
 
 ---
 

@@ -7,6 +7,7 @@ Operational helper scripts for the Keycloak platform.
 | Script | Purpose |
 |--------|---------|
 | `validate-foundation.sh` | Phase 00 acceptance checks (structure, rules, secrets hygiene) |
+| `validate-infrastructure.sh` | Phase 01 runtime checks (requires `make up`) |
 
 Additional scripts for backup, restore, health checks, and client
 registration will be added in later phases as needed.
