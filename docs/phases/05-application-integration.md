@@ -160,18 +160,21 @@ The platform should eventually support integration guides for common stacks:
 Implement reference integration only when a real consuming application
 needs it. Prefer one solid reference over many incomplete samples.
 
+Platform reference (docs + `make validate-integration`):
+[application-integration.md](../integration/application-integration.md).
+
 ---
 
 ## Tasks
 
-- [ ] Publish application registration checklist
-- [ ] Document frontend OIDC + PKCE expectations
-- [ ] Document backend JWT validation checklist
-- [ ] Define standard env var names
-- [ ] Document token storage options and threats
-- [ ] Document CORS and logging rules
-- [ ] Create a minimal reference integration when a first real app exists
-- [ ] Cross-link Phase 03 (auth) and Phase 04 (authZ)
+- [x] Publish application registration checklist
+- [x] Document frontend OIDC + PKCE expectations
+- [x] Document backend JWT validation checklist
+- [x] Define standard env var names
+- [x] Document token storage options and threats
+- [x] Document CORS and logging rules
+- [x] Create a minimal reference integration when a first real app exists
+- [x] Cross-link Phase 03 (auth) and Phase 04 (authZ)
 
 ---
 
