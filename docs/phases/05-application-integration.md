@@ -38,6 +38,8 @@ Database
 - Frontend authenticates users via Keycloak.
 - Backend trusts only validated access tokens.
 - Business authorization runs in the backend after authentication succeeds.
+- Follow the Phase 04 contract in [authorization-model.md](../security/authorization-model.md)
+  for roles, groups, 401/403, and resource ownership.
 
 ---
 
