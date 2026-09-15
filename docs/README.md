@@ -23,10 +23,10 @@ Contains the implementation plan and progress for each development phase.
 - [01-infrastructure.md](phases/01-infrastructure.md)
 - [02-keycloak.md](phases/02-keycloak.md)
 - [03-authentication.md](phases/03-authentication.md)
-- [04-application-integration.md](phases/04-application-integration.md)
-- [05-customization.md](phases/05-customization.md)
-- [06-production.md](phases/06-production.md)
-- [07-operations.md](phases/07-operations.md)
+- [04-authorization.md](phases/04-authorization.md)
+- [05-application-integration.md](phases/05-application-integration.md)
+- [06-customization.md](phases/06-customization.md)
+- [07-production.md](phases/07-production.md)
 - [08-reusability.md](phases/08-reusability.md)
 
 ### Security
