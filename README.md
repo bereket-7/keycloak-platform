@@ -65,6 +65,12 @@ make validate-keycloak       # Full Phase 02 realm/client checks
 make validate-authentication # Full Phase 03 OIDC lifecycle checks
 make apply-authorization     # Groups claim mapper for authZ signals (Phase 04)
 make validate-authorization  # Phase 04 authorization contract checks
+make validate-integration    # Phase 05 application integration contract
+make apply-customization     # Apply platform login theme
+make validate-customization  # Phase 06 theme/docs checks
+make validate-production-docs
+make validate-reusability
+make validate-all            # All phase validators (stack must be up)
 make logs                    # Follow logs
 make down                    # Stop services (data retained)
 make reset                   # Stop and wipe database volume (destructive)
@@ -77,8 +83,14 @@ Keycloak admin console: `http://localhost:8080/` (or `KEYCLOAK_HTTP_PORT` from `
 **Demo user (local only):** `demo@example.com` / `changeme-demo-12` (or `demo` on fresh import)  
 **Admin MFA baseline:** `admin-demo@example.com` / `changeme-admin-12` (configure TOTP on login)
 
-Authentication policies: [docs/security/authentication-policies.md](docs/security/authentication-policies.md)  
-Authorization model: [docs/security/authorization-model.md](docs/security/authorization-model.md)
+| Doc | Link |
+|-----|------|
+| Authentication | [docs/security/authentication-policies.md](docs/security/authentication-policies.md) |
+| Authorization | [docs/security/authorization-model.md](docs/security/authorization-model.md) |
+| App integration | [docs/integration/application-integration.md](docs/integration/application-integration.md) |
+| Customization | [docs/customization/customization-guide.md](docs/customization/customization-guide.md) |
+| Production | [docs/operations/production-deployment.md](docs/operations/production-deployment.md) |
+| Onboarding | [docs/reusability/onboarding.md](docs/reusability/onboarding.md) |
 
 **Warning:** `make reset` runs `docker compose down -v` and destroys all
 Keycloak data in the local PostgreSQL volume.
