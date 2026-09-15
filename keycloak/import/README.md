@@ -27,7 +27,8 @@ That uses the Admin API to create or update the realm from
 
 Committed JSON may contain **local development placeholders only**:
 
-- Demo user password: `changeme` (replace in real environments)
+- Demo user password: `changeme-demo-12` (must meet length ≥ 12 policy)
+- Admin demo password: `changeme-admin-12` (required action: CONFIGURE_TOTP)
 - `demo-api` client secret: `local-dev-only-change-me`
 
 Never commit production client secrets, SMTP passwords, or IdP credentials.
@@ -75,6 +76,21 @@ resource authorization.
 External IdPs (Google, GitHub, Microsoft, enterprise OIDC/SAML) are
 optional. Enable only when a consuming application needs them. Do not
 weaken redirect URI or account-linking controls for convenience.
+
+## Authorization signals (Phase 04)
+
+The import includes a `groups` client scope with a group-membership
+mapper so access tokens can carry `/orgs/*`, `/teams/*`, and
+`/projects/*` paths. Sample clients include `groups` as a default scope.
+
+On an already-running realm:
+
+```bash
+make apply-authorization
+make validate-authorization
+```
+
+See [authorization-model.md](../../docs/security/authorization-model.md).
 
 ## Change process (avoid drift)
 
