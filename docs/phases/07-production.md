@@ -191,7 +191,14 @@ Monitor
 
 ## Tasks
 
-- [ ] Choose production host/runtime (single VM + proxy is acceptable)
+Documentation and templates for production are complete in this repository.
+Live cutover remains environment-specific (DNS, certificates, secret manager).
+
+- [x] Document production architecture, HTTPS, proxy, DB, secrets, firewall
+- [x] Provide nginx example without private keys
+- [x] Link backup / restore / upgrades / troubleshooting
+- [x] Document deployment / rollback / acceptance checklist
+- [ ] Choose production host/runtime for a real environment
 - [ ] Provision DNS for auth hostname
 - [ ] Deploy reverse proxy with TLS and renewals
 - [ ] Configure Keycloak hostname and trusted proxy settings
@@ -201,8 +208,13 @@ Monitor
 - [ ] Restrict admin console exposure
 - [ ] Update client redirect URIs for production domains
 - [ ] Run production smoke tests (discovery, login, logout, token validate)
-- [ ] Document rollback steps
+- [ ] Document environment-specific rollback steps after first deploy
 
+Validate docs anytime:
+
+```bash
+make validate-production-docs
+```
 ---
 
 ## Testing
