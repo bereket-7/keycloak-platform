@@ -1,4 +1,5 @@
-.PHONY: help validate-foundation validate-infrastructure config up down reset logs ps health
+.PHONY: help validate-foundation validate-infrastructure validate-keycloak \
+	config up down reset logs ps health import-realm
 
 COMPOSE := docker compose
 COMPOSE_FILE := docker-compose.yml
@@ -8,6 +9,8 @@ help:
 	@echo ""
 	@echo "  validate-foundation       Run Phase 00 acceptance checks"
 	@echo "  validate-infrastructure   Run Phase 01 runtime checks (stack must be up)"
+	@echo "  validate-keycloak         Run Phase 02 realm/client checks (stack must be up)"
+	@echo "  import-realm              Create/update platform realm from Git import"
 	@echo "  config                    Validate docker compose configuration"
 	@echo "  up                        Start local infrastructure"
 	@echo "  down                      Stop local infrastructure"
@@ -17,13 +20,19 @@ help:
 	@echo "  health                    Check service health"
 	@echo ""
 	@echo "Documentation: docs/README.md"
-	@echo "Current phase:  docs/phases/01-infrastructure.md"
+	@echo "Current phase:  docs/phases/02-keycloak.md"
 
 validate-foundation:
 	@./scripts/validate-foundation.sh
 
 validate-infrastructure:
 	@./scripts/validate-infrastructure.sh
+
+validate-keycloak:
+	@./scripts/validate-keycloak.sh
+
+import-realm:
+	@./scripts/import-realm.sh
 
 config:
 	@test -f .env || (echo "error: copy .env.example to .env and set values" && exit 1)
