@@ -34,6 +34,8 @@ Contains the implementation plan and progress for each development phase.
 Contains authentication, authorization, token, and threat-model documentation.
 
 - [security-model.md](security/security-model.md)
+- [authentication-policies.md](security/authentication-policies.md)
+- [authorization-model.md](security/authorization-model.md)
 - [token-strategy.md](security/token-strategy.md)
 - [threat-model.md](security/threat-model.md)
 
