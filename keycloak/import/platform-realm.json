@@ -1,0 +1,176 @@
+{
+  "realm": "platform",
+  "enabled": true,
+  "displayName": "Keycloak Platform",
+  "sslRequired": "external",
+  "registrationAllowed": false,
+  "registrationEmailAsUsername": true,
+  "rememberMe": true,
+  "verifyEmail": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "editUsernameAllowed": false,
+  "bruteForceProtected": true,
+  "permanentLockout": false,
+  "maxFailureWaitSeconds": 900,
+  "minimumQuickLoginWaitSeconds": 60,
+  "waitIncrementSeconds": 60,
+  "quickLoginCheckMilliSeconds": 1000,
+  "maxDeltaTimeSeconds": 43200,
+  "failureFactor": 5,
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "offlineSessionIdleTimeout": 2592000,
+  "accessCodeLifespan": 60,
+  "accessCodeLifespanUserAction": 300,
+  "accessCodeLifespanLogin": 1800,
+  "roles": {
+    "realm": [
+      {
+        "name": "user",
+        "description": "Standard authenticated principal across applications"
+      },
+      {
+        "name": "admin",
+        "description": "Privileged operator within application or platform scope"
+      },
+      {
+        "name": "super-admin",
+        "description": "Break-glass platform-wide administration"
+      }
+    ]
+  },
+  "defaultRole": {
+    "name": "default-roles-platform",
+    "description": "${role_default-roles}",
+    "composite": true,
+    "composites": {
+      "realm": [
+        "offline_access",
+        "uma_authorization",
+        "user"
+      ]
+    }
+  },
+  "groups": [
+    {
+      "name": "orgs",
+      "path": "/orgs",
+      "subGroups": [
+        {
+          "name": "example",
+          "path": "/orgs/example"
+        }
+      ]
+    },
+    {
+      "name": "teams",
+      "path": "/teams",
+      "subGroups": [
+        {
+          "name": "platform",
+          "path": "/teams/platform"
+        }
+      ]
+    },
+    {
+      "name": "projects",
+      "path": "/projects",
+      "subGroups": [
+        {
+          "name": "demo",
+          "path": "/projects/demo"
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "username": "demo",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Demo",
+      "lastName": "User",
+      "email": "demo@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "changeme",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "user"
+      ],
+      "groups": [
+        "/orgs/example",
+        "/teams/platform",
+        "/projects/demo"
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "demo-web",
+      "name": "Demo Web Application",
+      "description": "Sample public frontend client (Authorization Code + PKCE)",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "protocol": "openid-connect",
+      "fullScopeAllowed": true,
+      "frontchannelLogout": true,
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:3000/*"
+      },
+      "redirectUris": [
+        "http://localhost:3000/*",
+        "http://localhost:3000/callback",
+        "http://localhost:3000/silent-renew"
+      ],
+      "webOrigins": [
+        "http://localhost:3000"
+      ]
+    },
+    {
+      "clientId": "demo-api",
+      "name": "Demo API Resource Server",
+      "description": "Sample confidential backend/resource-server client",
+      "enabled": true,
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "protocol": "openid-connect",
+      "fullScopeAllowed": true,
+      "secret": "local-dev-only-change-me",
+      "redirectUris": [],
+      "webOrigins": []
+    }
+  ],
+  "browserSecurityHeaders": {
+    "contentSecurityPolicyReportOnly": "",
+    "xContentTypeOptions": "nosniff",
+    "referrerPolicy": "no-referrer",
+    "xRobotsTag": "none",
+    "xFrameOptions": "SAMEORIGIN",
+    "contentSecurityPolicy": "frame-src 'self'; frame-ancestors 'self'; object-src 'none';",
+    "xXSSProtection": "1; mode=block",
+    "strictTransportSecurity": "max-age=31536000; includeSubDomains"
+  },
+  "smtpServer": {},
+  "eventsEnabled": false,
+  "eventsListeners": [
+    "jboss-logging"
+  ],
+  "adminEventsEnabled": false,
+  "identityProviders": [],
+  "identityProviderMappers": []
+}
