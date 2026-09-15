@@ -216,19 +216,19 @@ When modifying infrastructure, always record:
 
 ## Tasks
 
-- [ ] Confirm repository root contains (or plans) `.cursor/`, `docs/`, `config/`, `keycloak/`, `scripts/`
-- [ ] Confirm Cursor rules `00`–`05` exist and align with platform goals
-- [ ] Confirm `docs/` structure includes architecture, phases, security, operations
-- [ ] Confirm `docs/phases/` contains phases `00`–`08` with preserved filenames
-- [ ] Create or verify `.gitignore` excludes `.env`, secrets, and database artifacts
-- [ ] Create or verify `.env.example` listing required variable names with placeholders only
-- [ ] Ensure `.env` is never tracked
-- [ ] Create or verify root `README.md` describing purpose and how to find docs
-- [ ] Plan `Makefile` targets for later phases (`up`, `down`, `logs`, `ps`, health helpers)
-- [ ] Document local vs staging vs production environment intent
-- [ ] Agree Git commit conventions with the team
-- [ ] Review engineering principles against Cursor rules for conflicts
-- [ ] Mark Phase 00 complete only after acceptance criteria pass
+- [x] Confirm repository root contains (or plans) `.cursor/`, `docs/`, `config/`, `keycloak/`, `scripts/`
+- [x] Confirm Cursor rules `00`–`05` exist and align with platform goals
+- [x] Confirm `docs/` structure includes architecture, phases, security, operations
+- [x] Confirm `docs/phases/` contains phases `00`–`08` with preserved filenames
+- [x] Create or verify `.gitignore` excludes `.env`, secrets, and database artifacts
+- [x] Create or verify `.env.example` listing required variable names with placeholders only
+- [x] Ensure `.env` is never tracked
+- [x] Create or verify root `README.md` describing purpose and how to find docs
+- [x] Plan `Makefile` targets for later phases (`up`, `down`, `logs`, `ps`, health helpers)
+- [x] Document local vs staging vs production environment intent
+- [x] Agree Git commit conventions with the team
+- [x] Review engineering principles against Cursor rules for conflicts
+- [x] Mark Phase 00 complete only after acceptance criteria pass
 
 ---
 
