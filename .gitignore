@@ -1,0 +1,33 @@
+# Local secrets — never commit
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+credentials.json
+secrets/
+
+# PostgreSQL and backup artifacts — use Docker volumes, not Git
+postgres/data/
+backups/
+*.sql
+*.dump
+*.pgdump
+
+# Docker local overrides (if used later)
+docker-compose.override.yml
+
+# OS and editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.iml
+
+# Logs and temp files
+*.log
+tmp/
+temp/
