@@ -1,0 +1,33 @@
+---
+description: Keycloak rules
+alwaysApply: true
+---
+
+# Keycloak
+
+Keycloak is the central identity provider.
+
+Use standard protocols:
+
+- OAuth 2.0
+- OpenID Connect
+
+Prefer standard Keycloak configuration over custom code.
+
+Realm configuration should be reproducible.
+
+Clients must have:
+
+- explicit redirect URIs
+- explicit web origins
+- appropriate client authentication settings
+- least-privilege access
+
+Never use wildcard redirect URIs in production.
+
+Do not put sensitive business data into tokens unnecessarily.
+
+Roles should remain coarse-grained.
+
+Resource-level authorization belongs in the application unless
+there is a strong reason to move it into the identity layer.

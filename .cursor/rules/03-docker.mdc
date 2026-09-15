@@ -1,0 +1,21 @@
+---
+description: Docker rules
+alwaysApply: true
+---
+
+# Docker
+
+Use Docker for local infrastructure.
+
+Requirements:
+
+- Pin important image versions.
+- Do not use `latest` in production.
+- Use health checks.
+- Use named volumes for persistent database data.
+- Keep containers stateless where possible.
+- Do not store database files in Git.
+- Keep secrets outside Dockerfiles.
+- Use environment variables for environment-specific configuration.
+
+Do not expose internal services to the host unless necessary.

@@ -1,0 +1,33 @@
+---
+description: Security rules
+alwaysApply: true
+---
+
+# Security
+
+Security is a first-class requirement.
+
+Never:
+
+- hardcode credentials
+- commit secrets
+- expose PostgreSQL publicly without a specific reason
+- disable TLS in production
+- disable certificate validation
+- log passwords
+- log access tokens
+- log refresh tokens
+- put secrets in source code
+
+Use:
+
+- environment variables
+- secret managers in production
+- HTTPS
+- secure cookies
+- short-lived access tokens
+- appropriate refresh-token handling
+- least privilege
+
+Before changing authentication or authorization behavior,
+consider the security impact.

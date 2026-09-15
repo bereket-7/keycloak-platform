@@ -1,0 +1,39 @@
+---
+description: General project rules
+alwaysApply: true
+---
+
+# Project
+
+This repository contains a reusable Keycloak-based identity platform.
+
+The platform must be:
+
+- secure
+- maintainable
+- reproducible
+- environment-aware
+- Docker-first
+- suitable for local development and production deployment
+
+## Engineering principles
+
+- Prefer simple solutions over unnecessary complexity.
+- Do not introduce dependencies without justification.
+- Do not duplicate configuration.
+- Keep secrets out of Git.
+- Never hardcode passwords, tokens, or API keys.
+- Infrastructure configuration must be version controlled.
+- Production configuration must not depend on developer machines.
+
+## Changes
+
+Before making architectural changes:
+
+1. Explain the proposed change.
+2. Explain why it is necessary.
+3. Identify affected components.
+4. Consider security implications.
+5. Keep the change minimal.
+
+Do not rewrite unrelated files.

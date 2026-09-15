@@ -1,0 +1,42 @@
+---
+alwaysApply: true
+---
+---
+description: Architecture rules
+alwaysApply: true
+---
+
+# Architecture
+
+This project is a reusable identity platform based on Keycloak.
+
+## Principles
+
+- Keycloak is responsible for identity and authentication.
+- Applications are responsible for business authorization.
+- PostgreSQL is the persistent database for Keycloak.
+- Infrastructure must be reproducible.
+- Configuration should be declarative where practical.
+- Secrets must never be committed.
+- Avoid unnecessary microservices.
+- Prefer boring, well-understood architecture.
+
+## Boundaries
+
+Keycloak:
+- Authentication
+- Identity
+- OAuth2
+- OpenID Connect
+- Sessions
+- MFA
+- Identity federation
+- Coarse-grained roles
+
+Application:
+- Business permissions
+- Resource ownership
+- Domain authorization
+- Business rules
+
+Do not move business logic into Keycloak unnecessarily.

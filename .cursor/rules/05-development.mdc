@@ -1,0 +1,28 @@
+---
+description: Development workflow rules
+alwaysApply: true
+---
+
+# Development
+
+Before implementing a significant change:
+
+1. Understand the existing architecture.
+2. Identify affected files.
+3. Explain the proposed approach.
+4. Implement the smallest reasonable change.
+5. Validate the configuration.
+6. Test the change.
+7. Update documentation when behavior changes.
+
+Do not rewrite working configuration unnecessarily.
+
+Do not introduce a new technology when an existing project
+technology already solves the problem.
+
+When modifying infrastructure, explain:
+
+- what changed
+- why it changed
+- how to test it
+- how to rollback it
